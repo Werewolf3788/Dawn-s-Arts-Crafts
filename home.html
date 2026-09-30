@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  Dawn's Arts & Crafts Showcase
+  Build Timestamp: 2026-09-30 13:02:00 EDT (America/New_York)
+  Version: 1.0.0
+-->
+<head>
+  <!-- Google Tag Manager (Lines 10-18) -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s);j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-CTYHDF4MSD');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google Analytics Tag G-CTYHDF4MSD (Lines 21-28) -->
+  <script async src="//www.googletagmanager.com/gtag/js?id=G-CTYHDF4MSD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CTYHDF4MSD', {
+      send_page_view: true,
+      cookie_flags: 'SameSite=None;Secure'
+    });
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dawn's Arts &amp; Crafts | Handcrafted Showcase</title>
+
+  <!-- Typography & Styling (Lines 37-230) -->
+  <link rel="preconnect" href="//fonts.googleapis.com">
+  <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
+  <link href="//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #0d0f12;
+      --surface-color: #171a21;
+      --surface-hover: #212631;
+      --card-border: #2d3340;
+      --text-main: #f0f3f6;
+      --text-muted: #9aa4b2;
+      --accent-color: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --badge-available: #10b981;
+      --badge-sold: #ef4444;
+      --badge-default: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 15, 18, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .brand-title span {
+      color: var(--accent-color);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--card-border);
+      color: var(--text-main);
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1280px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Hero & Featured */
+    .hero-banner {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding: 2.5rem 1rem;
+      background: radial-gradient(circle at top, #1e293b 0%, rgba(13, 15, 18, 0) 70%);
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+    }
+
+    .hero-banner h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-banner p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Filter Controls */
+    .filter-bar {
+      display: flex;
+      gap: 0.6rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .filter-btn {
+      background: var(--surface-color);
+      color: var(--text-muted);
+      border: 1px solid var(--card-border);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent-color);
+      color: #000;
+      border-color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    /* Catalog CSS Grid */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--surface-color);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-color);
+    }
+
+    .card-img-wrap {
+      width: 100%;
+      height: 220px;
+      background: #11141a;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-img-wrap img {
+      transform: scale(1.04);
+    }
+
+    .status-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .status-available { background: var(--badge-available); color: #022c22; }
+    .status-sold { background: var(--badge-sold); color: #450a0a; }
+    .status-other { background: var(--badge-default); color: #fff; }
+
+    .card-body {
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-category {
+      font-size: 0.75rem;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .card-price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-top: auto;
+      padding-top: 0.75rem;
+    }
+
+    /* Modal / Lightbox */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-content {
+      background: var(--surface-color);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--card-border);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .modal-img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .modal-body {
+      padding: 1.5rem;
+    }
+
+    .modal-description {
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 1rem 0;
+      font-size: 0.95rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      background: var(--surface-color);
+      padding: 1.25rem 1.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--surface-color);
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid var(--card-border);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-CTYHDF4MSD"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <!-- Top Navigation Header (Lines 242-252) -->
+  <header>
+    <div class="nav-container">
+      <a href="./" class="brand-title">Dawn's <span>Arts &amp; Crafts</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">&#9776;</button>
+      <nav>
+        <ul class="nav-links" id="menuNav">
+          <!-- Dynamically populated from Menu.json -->
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Layout (Lines 255-279) -->
+  <main>
+    <section class="hero-banner">
+      <h1>Handmade Arts &amp; Crafts</h1>
+      <p>Original handmade pieces, personalized gifts, and custom home accents crafted with care by Dawn.</p>
+    </section>
+
+    <!-- Category Filter Controls -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-category="ALL">All Items</button>
+    </div>
+
+    <!-- Product Catalog Grid -->
+    <section class="catalog-grid" id="catalogGrid">
+      <!-- Dynamically populated from Google Sheets CSV -->
+    </section>
+  </main>
+
+  <!-- Product Detail Lightbox Modal (Lines 282-297) -->
+  <div class="modal-backdrop" id="productModal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <img id="modalImg" class="modal-img" src="" alt="">
+      <div class="modal-body">
+        <div id="modalCategory" class="card-category"></div>
+        <h2 id="modalTitle" class="card-title"></h2>
+        <div id="modalPrice" class="card-price" style="margin-top:0.4rem;"></div>
+        <p id="modalDesc" class="modal-description"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Persistent Timestamped Footer (Lines 300-310) -->
+  <footer>
+    <div class="footer-inner">
+      <div>&copy; Dawn's Arts &amp; Crafts. All rights reserved.</div>
+      <div id="footerMeta">Version: 1.0.0 | Updated: 2026-09-30 13:02 EDT</div>
+    </div>
+  </footer>
+
+  <!-- Application Logic & Feed Ingestion (Lines 313-485) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Configuration Endpoints using protocol-relative paths
+      const MENU_ENDPOINT = '//raw.githubusercontent.com/Werewolf3788/Dawn-s-Arts-Crafts/main/Menu.json';
+      const SHEET_CSV_ENDPOINT = '//docs.google.com/spreadsheets/d/e/2PACX-1vRe4Cwhr4XIkNdg0lQFwUugrwtrNoV9ser4QTJ9t7LXe4RzGNEjrNKzKNMqUQh1jav8MYuZtLqMSUEi/pub?gid=0&single=true&output=csv';
+
+      let catalogData = [];
+      let activeCategory = 'ALL';
+
+      // DOM Elements
+      const menuNav = document.getElementById('menuNav');
+      const navToggle = document.getElementById('navToggle');
+      const catalogGrid = document.getElementById('catalogGrid');
+      const filterBar = document.getElementById('filterBar');
+      const productModal = document.getElementById('productModal');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
+      const modalImg = document.getElementById('modalImg');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalCategory = document.getElementById('modalCategory');
+      const modalPrice = document.getElementById('modalPrice');
+      const modalDesc = document.getElementById('modalDesc');
+
+      // Navigation Drawer Toggle
+      if (navToggle && menuNav) {
+        navToggle.addEventListener('click', () => {
+          menuNav.classList.toggle('active');
+        });
+      }
+
+      // Safe Link Setup Helper (Internal vs External Domain Handling)
+      function configureLinkElement(linkEl, href) {
+        linkEl.href = href;
+        try {
+          const targetUrl = new URL(href, window.location.href);
+          if (targetUrl.hostname !== window.location.hostname) {
+            linkEl.target = '_blank';
+            linkEl.rel = 'noopener noreferrer';
+          } else {
+            linkEl.target = '_self';
+          }
+        } catch (e) {
+          linkEl.target = '_self';
+        }
+      }
+
+      // Fetch and Build Menu (Lines 357-388)
+      async function loadNavigationMenu() {
+        if (!menuNav) return;
+        try {
+          const response = await fetch(MENU_ENDPOINT);
+          if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+          const menuItems = await response.json();
+
+          menuNav.innerHTML = '';
+          const items = Array.isArray(menuItems) ? menuItems : (menuItems.menu || menuItems.items || []);
+
+          items.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.textContent = item.title || item.name || 'Link';
+            configureLinkElement(a, item.url || item.link || '#');
+            li.appendChild(a);
+            menuNav.appendChild(li);
+          });
+        } catch (error) {
+          console.warn('Navigation menu load fallback:', error);
+          menuNav.innerHTML = '<li><a href="./" target="_self">Home</a></li>';
+        }
+      }
+
+      // Robust CSV Parser handling quotes, commas, and line breaks (Lines 391-420)
+      function parseCSV(text) {
+        const lines = [];
+        let row = [];
+        let inQuotes = false;
+        let cell = '';
+
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          const next = text[i + 1];
+
+          if (c === '"') {
+            if (inQuotes && next === '"') {
+              cell += '"';
+              i++;
+            } else {
+              inQuotes = !inQuotes;
+            }
+          } else if (c === ',' && !inQuotes) {
+            row.push(cell.trim());
+            cell = '';
+          } else if ((c === '\r' || c === '\n') && !inQuotes) {
+            if (c === '\r' && next === '\n') i++;
+            row.push(cell.trim());
+            if (row.length > 0 && row.some(col => col !== '')) {
+              lines.push(row);
+            }
+            row = [];
+            cell = '';
+          } else {
+            cell += c;
+          }
+        }
+        if (cell || row.length > 0) {
+          row.push(cell.trim());
+          lines.push(row);
+        }
+        return lines;
+      }
+
+      // Render Cards to Grid (Lines 423-455)
+      function renderCatalog() {
+        if (!catalogGrid) return;
+        catalogGrid.innerHTML = '';
+
+        const filtered = catalogData.filter(item => {
+          if (activeCategory === 'ALL') return true;
+          return (item.category || '').toUpperCase() === activeCategory.toUpperCase();
+        });
+
+        if (filtered.length === 0) {
+          catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 2rem;">No items currently available in this category.</div>';
+          return;
+        }
+
+        filtered.forEach(item => {
+          const card = document.createElement('article');
+          card.className = 'card';
+          
+          let statusClass = 'status-other';
+          const st = (item.status || '').toLowerCase();
+          if (st.includes('avail')) statusClass = 'status-available';
+          if (st.includes('sold')) statusClass = 'status-sold';
+
+          card.innerHTML = `
+            <div class="card-img-wrap">
+              <img src="${item.imageUrl || '//placehold.co/600x400/171a21/9aa4b2?text=Craft'}" loading="lazy">
+              <span class="status-badge ${statusClass}">${item.status || 'Available'}</span>
+            </div>
+            <div class="card-body">
+              <div class="card-category">${item.category || 'Handcrafted'}</div>
+              <h3 class="card-title">${item.productName || 'Untitled Piece'}</h3>
+              <div class="card-price">${item.price || 'Inquire'}</div>
+            </div>
+          `;
+
+          card.addEventListener('click', () => openModal(item));
+          catalogGrid.appendChild(card);
+        });
+      }
+
+      // Lightbox Modal Handlers (Lines 458-479)
+      function openModal(item) {
+        if (!productModal) return;
+        modalImg.src = item.imageUrl || '//placehold.co/600x400/171a21/9aa4b2?text=Craft';
+        // Descriptive alt text restricted solely to lightbox view
+        modalImg.alt = `${item.productName} - Detailed View`;
+        modalTitle.textContent = item.productName || 'Handcrafted Item';
+        modalCategory.textContent = item.category || 'Craft';
+        modalPrice.textContent = item.price || 'Price upon inquiry';
+        modalDesc.textContent = item.description || 'No additional details provided.';
+        productModal.style.display = 'flex';
+      }
+
+      function closeModal() {
+        if (productModal) {
+          productModal.style.display = 'none';
+          modalImg.src = '';
+          modalImg.alt = '';
+        }
+      }
+
+      if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+      if (productModal) {
+        productModal.addEventListener('click', (e) => {
+          if (e.target === productModal) closeModal();
+        });
+      }
+
+      // Category Filter Builder (Lines 482-506)
+      function buildFilterButtons() {
+        if (!filterBar) return;
+        const categories = new Set();
+        catalogData.forEach(item => {
+          if (item.category) categories.add(item.category.trim());
+        });
+
+        filterBar.innerHTML = '';
+        const allBtn = document.createElement('button');
+        allBtn.className = 'filter-btn' + (activeCategory === 'ALL' ? ' active' : '');
+        allBtn.textContent = 'All Items';
+        allBtn.addEventListener('click', () => {
+          activeCategory = 'ALL';
+          updateActiveFilterButton(allBtn);
+          renderCatalog();
+        });
+        filterBar.appendChild(allBtn);
+
+        categories.forEach(cat => {
+          const btn = document.createElement('button');
+          btn.className = 'filter-btn' + (activeCategory.toUpperCase() === cat.toUpperCase() ? ' active' : '');
+          btn.textContent = cat;
+          btn.addEventListener('click', () => {
+            activeCategory = cat;
+            updateActiveFilterButton(btn);
+            renderCatalog();
+          });
+          filterBar.appendChild(btn);
+        });
+      }
+
+      function updateActiveFilterButton(selectedBtn) {
+        const buttons = filterBar.querySelectorAll('.filter-btn');
+        buttons.forEach(b => b.classList.remove('active'));
+        selectedBtn.classList.add('active');
+      }
+
+      // Fetch & Process Catalog CSV (Lines 509-548)
+      async function loadCatalogData() {
+        try {
+          const response = await fetch(SHEET_CSV_ENDPOINT);
+          if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+          const csvText = await response.text();
+          const rows = parseCSV(csvText);
+
+          if (rows.length < 2) {
+            console.log('No data rows found in Google Sheet feed.');
+            return;
+          }
+
+          // Expected Layout:
+          // A: Item ID | B: Product Name | C: Category | D: Price | E: Image Url | F: Status | G: Description | H: Featured
+          catalogData = rows.slice(1).map(row => ({
+            itemId: row[0] || '',
+            productName: row[1] || 'Handmade Craft',
+            category: row[2] || 'General',
+            price: row[3] || 'Inquire',
+            imageUrl: row[4] || '',
+            status: row[5] || 'Available',
+            description: row[6] || '',
+            featured: (row[7] || '').toLowerCase()
+          }));
+
+          buildFilterButtons();
+          renderCatalog();
+        } catch (error) {
+          console.error('Failed to load Google Sheet catalog:', error);
+          if (catalogGrid) {
+            catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 2rem;">Unable to load catalog at this moment. Please check back shortly.</div>';
+          }
+        }
+      }
+
+      // Initialize App Execution
+      loadNavigationMenu();
+      loadCatalogData();
+    });
+  </script>
+</body>
+</html>
