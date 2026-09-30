@@ -1,5 +1,4 @@
 [
   { "title": "Home", "url": "./" },
-  { "title": "Shop", "url": "#catalogGrid" },
-  { "title": "About Dawn", "url": "#about-dawn" }
+    { "title": "About Dawn", "url": "#about-dawn" }
 ]
