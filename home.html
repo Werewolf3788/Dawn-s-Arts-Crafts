@@ -2,8 +2,8 @@
 <html lang="en">
 <!--
   Dawn's Arts & Crafts Showcase
-  Build Timestamp: 2026-09-30 13:02:00 EDT (America/New_York)
-  Version: 1.0.0
+  Build Timestamp: 2026-09-30 13:10:00 EDT (America/New_York)
+  Version: 1.0.1
 -->
 <head>
   <!-- Google Tag Manager (Lines 10-18) -->
@@ -30,9 +30,9 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dawn's Arts &amp; Crafts | Handcrafted Showcase</title>
+  <title>Dawn's Arts &amp; Crafts</title>
 
-  <!-- Typography & Styling (Lines 37-230) -->
+  <!-- Typography & Styling (Lines 37-235) -->
   <link rel="preconnect" href="//fonts.googleapis.com">
   <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
   <link href="//fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -73,7 +73,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(13, 15, 18, 0.92);
+      background: rgba(13, 15, 18, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--card-border);
     }
@@ -81,14 +81,14 @@
     .nav-container {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0.85rem 1.5rem;
+      padding: 1rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .brand-title {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: -0.02em;
       color: var(--text-main);
@@ -135,46 +135,48 @@
       max-width: 1280px;
       margin: 0 auto;
       width: 100%;
-      padding: 2rem 1.5rem;
+      padding: 2.5rem 1.5rem;
     }
 
-    /* Hero & Featured */
+    /* Hero Banner */
     .hero-banner {
       text-align: center;
       margin-bottom: 2.5rem;
-      padding: 2.5rem 1rem;
-      background: radial-gradient(circle at top, #1e293b 0%, rgba(13, 15, 18, 0) 70%);
-      border-radius: 12px;
+      padding: 3rem 1.5rem;
+      background: radial-gradient(circle at top, #1e293b 0%, rgba(13, 15, 18, 0) 75%);
+      border-radius: 14px;
       border: 1px solid var(--card-border);
     }
 
     .hero-banner h1 {
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
     }
 
     .hero-banner p {
       color: var(--text-muted);
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       max-width: 650px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
-    /* Filter Controls */
+    /* Category Filter Controls */
     .filter-bar {
       display: flex;
       gap: 0.6rem;
       overflow-x: auto;
       padding-bottom: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .filter-btn {
       background: var(--surface-color);
       color: var(--text-muted);
       border: 1px solid var(--card-border);
-      padding: 0.5rem 1rem;
+      padding: 0.55rem 1.2rem;
       border-radius: 9999px;
       cursor: pointer;
       font-size: 0.875rem;
@@ -185,7 +187,7 @@
 
     .filter-btn.active, .filter-btn:hover {
       background: var(--accent-color);
-      color: #000;
+      color: #0d0f12;
       border-color: var(--accent-color);
       font-weight: 600;
     }
@@ -200,22 +202,23 @@
     .card {
       background: var(--surface-color);
       border: 1px solid var(--card-border);
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      transition: transform 0.2s ease, border-color 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
       border-color: var(--accent-color);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     }
 
     .card-img-wrap {
       width: 100%;
-      height: 220px;
+      height: 230px;
       background: #11141a;
       overflow: hidden;
       position: relative;
@@ -237,8 +240,8 @@
       position: absolute;
       top: 0.75rem;
       right: 0.75rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 4px;
+      padding: 0.3rem 0.65rem;
+      border-radius: 6px;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -246,11 +249,11 @@
     }
 
     .status-available { background: var(--badge-available); color: #022c22; }
-    .status-sold { background: var(--badge-sold); color: #450a0a; }
+    .status-sold { background: var(--badge-sold); color: #fff; }
     .status-other { background: var(--badge-default); color: #fff; }
 
     .card-body {
-      padding: 1.2rem;
+      padding: 1.25rem;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -269,11 +272,11 @@
       font-size: 1.15rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
-      line-height: 1.3;
+      line-height: 1.35;
     }
 
     .card-price {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: #fff;
       margin-top: auto;
@@ -296,8 +299,8 @@
     .modal-content {
       background: var(--surface-color);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      max-width: 720px;
+      border-radius: 14px;
+      max-width: 680px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -310,13 +313,13 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       border: 1px solid var(--card-border);
       color: #fff;
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -332,13 +335,13 @@
     }
 
     .modal-body {
-      padding: 1.5rem;
+      padding: 1.75rem;
     }
 
     .modal-description {
       color: var(--text-muted);
       line-height: 1.6;
-      margin: 1rem 0;
+      margin: 1.25rem 0;
       font-size: 0.95rem;
     }
 
@@ -356,7 +359,6 @@
       max-width: 1280px;
       margin: 0 auto;
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
@@ -376,7 +378,7 @@
         left: 0;
         right: 0;
         background: var(--surface-color);
-        padding: 1rem 1.5rem;
+        padding: 1.25rem 1.5rem;
         border-bottom: 1px solid var(--card-border);
       }
       .nav-links.active {
@@ -395,11 +397,11 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
-  <!-- Top Navigation Header (Lines 242-252) -->
+  <!-- Top Navigation Header (Lines 245-257) -->
   <header>
     <div class="nav-container">
       <a href="./" class="brand-title">Dawn's <span>Arts &amp; Crafts</span></a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">&#9776;</button>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">&#9776;</button>
       <nav>
         <ul class="nav-links" id="menuNav">
           <!-- Dynamically populated from Menu.json -->
@@ -408,25 +410,25 @@
     </div>
   </header>
 
-  <!-- Main Content Layout (Lines 255-279) -->
+  <!-- Main Content Layout (Lines 260-278) -->
   <main>
     <section class="hero-banner">
       <h1>Handmade Arts &amp; Crafts</h1>
-      <p>Original handmade pieces, personalized gifts, and custom home accents crafted with care by Dawn.</p>
+      <p>Original handcrafted pieces, personalized gifts, and custom home accents created by Dawn.</p>
     </section>
 
-    <!-- Category Filter Controls -->
+    <!-- Category Filters -->
     <div class="filter-bar" id="filterBar">
       <button class="filter-btn active" data-category="ALL">All Items</button>
     </div>
 
     <!-- Product Catalog Grid -->
     <section class="catalog-grid" id="catalogGrid">
-      <!-- Dynamically populated from Google Sheets CSV -->
+      <!-- Cards rendered from Google Sheets CSV -->
     </section>
   </main>
 
-  <!-- Product Detail Lightbox Modal (Lines 282-297) -->
+  <!-- Product Detail Lightbox Modal (Lines 281-296) -->
   <div class="modal-backdrop" id="productModal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
@@ -440,19 +442,19 @@
     </div>
   </div>
 
-  <!-- Persistent Timestamped Footer (Lines 300-310) -->
+  <!-- Persistent Timestamped Footer (Lines 299-307) -->
   <footer>
     <div class="footer-inner">
       <div>&copy; Dawn's Arts &amp; Crafts. All rights reserved.</div>
-      <div id="footerMeta">Version: 1.0.0 | Updated: 2026-09-30 13:02 EDT</div>
+      <div>Version: 1.0.1 | Updated: 2026-09-30 13:10 EDT</div>
     </div>
   </footer>
 
-  <!-- Application Logic & Feed Ingestion (Lines 313-485) -->
+  <!-- Application Logic & Feed Ingestion (Lines 310-480) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Configuration Endpoints using protocol-relative paths
-      const MENU_ENDPOINT = '//raw.githubusercontent.com/Werewolf3788/Dawn-s-Arts-Crafts/main/Menu.json';
+      // Relative endpoints
+      const MENU_ENDPOINT = './Menu.json';
       const SHEET_CSV_ENDPOINT = '//docs.google.com/spreadsheets/d/e/2PACX-1vRe4Cwhr4XIkNdg0lQFwUugrwtrNoV9ser4QTJ9t7LXe4RzGNEjrNKzKNMqUQh1jav8MYuZtLqMSUEi/pub?gid=0&single=true&output=csv';
 
       let catalogData = [];
@@ -471,15 +473,15 @@
       const modalPrice = document.getElementById('modalPrice');
       const modalDesc = document.getElementById('modalDesc');
 
-      // Navigation Drawer Toggle
+      // Mobile Navigation Toggle
       if (navToggle && menuNav) {
         navToggle.addEventListener('click', () => {
           menuNav.classList.toggle('active');
         });
       }
 
-      // Safe Link Setup Helper (Internal vs External Domain Handling)
-      function configureLinkElement(linkEl, href) {
+      // Domain-Aware Link Helper (Opens external in new tab, same domain in same tab)
+      function configureLink(linkEl, href) {
         linkEl.href = href;
         try {
           const targetUrl = new URL(href, window.location.href);
@@ -494,32 +496,32 @@
         }
       }
 
-      // Fetch and Build Menu (Lines 357-388)
-      async function loadNavigationMenu() {
+      // Fetch & Render Menu.json (Lines 352-385)
+      async function loadMenu() {
         if (!menuNav) return;
         try {
           const response = await fetch(MENU_ENDPOINT);
-          if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-          const menuItems = await response.json();
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          const data = await response.json();
 
           menuNav.innerHTML = '';
-          const items = Array.isArray(menuItems) ? menuItems : (menuItems.menu || menuItems.items || []);
+          const items = Array.isArray(data) ? data : (data.menu || data.items || []);
 
           items.forEach(item => {
             const li = document.createElement('li');
             const a = document.createElement('a');
             a.textContent = item.title || item.name || 'Link';
-            configureLinkElement(a, item.url || item.link || '#');
+            configureLink(a, item.url || item.link || '#');
             li.appendChild(a);
             menuNav.appendChild(li);
           });
-        } catch (error) {
-          console.warn('Navigation menu load fallback:', error);
+        } catch (err) {
+          console.warn('Menu load error, fallback activated:', err);
           menuNav.innerHTML = '<li><a href="./" target="_self">Home</a></li>';
         }
       }
 
-      // Robust CSV Parser handling quotes, commas, and line breaks (Lines 391-420)
+      // Robust CSV Parser (Lines 388-422)
       function parseCSV(text) {
         const lines = [];
         let row = [];
@@ -559,7 +561,7 @@
         return lines;
       }
 
-      // Render Cards to Grid (Lines 423-455)
+      // Render Cards to Grid (Lines 425-455)
       function renderCatalog() {
         if (!catalogGrid) return;
         catalogGrid.innerHTML = '';
@@ -570,14 +572,14 @@
         });
 
         if (filtered.length === 0) {
-          catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 2rem;">No items currently available in this category.</div>';
+          catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 2rem;">No items found in this category.</div>';
           return;
         }
 
         filtered.forEach(item => {
           const card = document.createElement('article');
           card.className = 'card';
-          
+
           let statusClass = 'status-other';
           const st = (item.status || '').toLowerCase();
           if (st.includes('avail')) statusClass = 'status-available';
@@ -600,12 +602,11 @@
         });
       }
 
-      // Lightbox Modal Handlers (Lines 458-479)
+      // Lightbox Handlers (Lines 458-478)
       function openModal(item) {
         if (!productModal) return;
         modalImg.src = item.imageUrl || '//placehold.co/600x400/171a21/9aa4b2?text=Craft';
-        // Descriptive alt text restricted solely to lightbox view
-        modalImg.alt = `${item.productName} - Detailed View`;
+        modalImg.alt = `${item.productName} - View`;
         modalTitle.textContent = item.productName || 'Handcrafted Item';
         modalCategory.textContent = item.category || 'Craft';
         modalPrice.textContent = item.price || 'Price upon inquiry';
@@ -628,7 +629,7 @@
         });
       }
 
-      // Category Filter Builder (Lines 482-506)
+      // Filter Tabs Builder (Lines 481-505)
       function buildFilterButtons() {
         if (!filterBar) return;
         const categories = new Set();
@@ -666,20 +667,17 @@
         selectedBtn.classList.add('active');
       }
 
-      // Fetch & Process Catalog CSV (Lines 509-548)
+      // Fetch & Process Sheet Data (Lines 508-540)
       async function loadCatalogData() {
         try {
           const response = await fetch(SHEET_CSV_ENDPOINT);
-          if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
           const csvText = await response.text();
           const rows = parseCSV(csvText);
 
-          if (rows.length < 2) {
-            console.log('No data rows found in Google Sheet feed.');
-            return;
-          }
+          if (rows.length < 2) return;
 
-          // Expected Layout:
+          // Mapping Columns:
           // A: Item ID | B: Product Name | C: Category | D: Price | E: Image Url | F: Status | G: Description | H: Featured
           catalogData = rows.slice(1).map(row => ({
             itemId: row[0] || '',
@@ -694,16 +692,16 @@
 
           buildFilterButtons();
           renderCatalog();
-        } catch (error) {
-          console.error('Failed to load Google Sheet catalog:', error);
+        } catch (err) {
+          console.error('Error fetching sheet CSV:', err);
           if (catalogGrid) {
-            catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 2rem;">Unable to load catalog at this moment. Please check back shortly.</div>';
+            catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 2rem;">Loading crafts catalog...</div>';
           }
         }
       }
 
-      // Initialize App Execution
-      loadNavigationMenu();
+      // Run
+      loadMenu();
       loadCatalogData();
     });
   </script>
