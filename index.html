@@ -2,8 +2,8 @@
 <html lang="en">
 <!--
   Dawn's Arts & Crafts Showcase
-  Build Timestamp: 2026-09-30 13:31:00 EDT (America/New_York)
-  Version: 1.4.0
+  Build Timestamp: 2026-09-30 13:46:00 EDT (America/New_York)
+  Version: 1.7.0
 -->
 <head>
   <!-- Google Tag Manager (Lines 10-18) -->
@@ -32,70 +32,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dawn's Arts &amp; Crafts | Handcrafted Showcase</title>
 
-  <!-- Typography & Styling (Lines 37-300) -->
+  <!-- Typography (Lines 37-43) -->
   <link rel="preconnect" href="//fonts.googleapis.com">
   <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
   <link href="//fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Daylight Theme Variables (Default when device is in light mode) */
+    /* Daylight Theme Variables (Lines 46-77) */
     :root {
-      --bg-main: #faf7f2;
-      --bg-radial-1: rgba(255, 107, 107, 0.08);
-      --bg-radial-2: rgba(139, 92, 246, 0.08);
-      --bg-radial-3: rgba(245, 158, 11, 0.08);
-      --surface-card: #ffffff;
-      --surface-header: rgba(255, 255, 255, 0.95);
-      --border-color: #ebdcd0;
-      --border-card: #f1f5f9;
-      --text-main: #1e293b;
-      --text-muted: #64748b;
+      --bg-main: #f5f2eb;
+      --bg-radial-1: rgba(255, 107, 107, 0.12);
+      --bg-radial-2: rgba(139, 92, 246, 0.12);
+      --bg-radial-3: rgba(245, 158, 11, 0.1);
+      --surface-glass: rgba(255, 255, 255, 0.85);
+      --surface-header: rgba(255, 255, 255, 0.9);
+      --border-gloss: rgba(255, 255, 255, 0.9);
+      --border-card: rgba(230, 220, 210, 0.8);
+      --text-main: #0f172a;
+      --text-muted: #475569;
       
-      /* Vibrant Craft Colors */
-      --craft-coral: #ff6b6b;
+      --craft-coral: #ff5757;
       --craft-pink: #ec4899;
       --craft-purple: #8b5cf6;
       --craft-gold: #f59e0b;
-      --craft-teal: #10b981;
 
-      --badge-avail-bg: #dcfce7;
+      --badge-avail-bg: rgba(220, 252, 231, 0.9);
       --badge-avail-text: #166534;
-      --badge-sold-bg: #fee2e2;
+      --badge-sold-bg: rgba(254, 226, 226, 0.9);
       --badge-sold-text: #991b1b;
+      --badge-feat-bg: linear-gradient(135deg, #fef08a, #f59e0b);
+      --badge-feat-text: #451a03;
       
-      --hero-bg: linear-gradient(135deg, #fff5eb 0%, #fdf2f8 50%, #f5f3ff 100%);
-      --hero-border: 2px dashed #f0cfbb;
-      --hero-shadow: 0 10px 30px rgba(255, 107, 107, 0.06);
-      --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-      --card-hover-shadow: 0 16px 32px rgba(236, 72, 153, 0.12);
-      --img-bg: #f8fafc;
+      --hero-bg: linear-gradient(135deg, rgba(255, 245, 235, 0.85) 0%, rgba(253, 242, 248, 0.85) 50%, rgba(245, 243, 255, 0.85) 100%);
+      --hero-border: 1px solid rgba(255, 255, 255, 0.95);
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --card-hover-shadow: 0 20px 35px -5px rgba(236, 72, 153, 0.18), 0 0 15px rgba(255, 107, 107, 0.15);
+      --img-bg: #ece7de;
     }
 
-    /* Nighttime Theme: Automatically engaged by Device / OS dark settings */
+    /* Nighttime Theme: Automatically engaged by Device / OS dark settings (Lines 79-106) */
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg-main: #0c0e14;
-        --bg-radial-1: rgba(255, 107, 107, 0.12);
-        --bg-radial-2: rgba(139, 92, 246, 0.12);
-        --bg-radial-3: rgba(245, 158, 11, 0.07);
-        --surface-card: #151821;
-        --surface-header: rgba(15, 18, 26, 0.95);
-        --border-color: #242b3b;
-        --border-card: #202636;
-        --text-main: #f3f4f6;
+        --bg-main: #090b10;
+        --bg-radial-1: rgba(255, 107, 107, 0.15);
+        --bg-radial-2: rgba(139, 92, 246, 0.15);
+        --bg-radial-3: rgba(245, 158, 11, 0.1);
+        --surface-glass: rgba(21, 25, 36, 0.75);
+        --surface-header: rgba(13, 16, 24, 0.88);
+        --border-gloss: rgba(255, 255, 255, 0.12);
+        --border-card: rgba(255, 255, 255, 0.08);
+        --text-main: #f8fafc;
         --text-muted: #94a3b8;
         
-        --badge-avail-bg: #064e3b;
+        --badge-avail-bg: rgba(6, 78, 59, 0.85);
         --badge-avail-text: #a7f3d0;
-        --badge-sold-bg: #7f1d1d;
+        --badge-sold-bg: rgba(127, 29, 29, 0.85);
         --badge-sold-text: #fecaca;
+        --badge-feat-bg: linear-gradient(135deg, #f59e0b, #b45309);
+        --badge-feat-text: #fffbeb;
 
-        --hero-bg: radial-gradient(circle at top, #1e2436 0%, #11141e 100%);
-        --hero-border: 2px dashed #2d3748;
-        --hero-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        --card-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-        --card-hover-shadow: 0 16px 32px rgba(236, 72, 153, 0.2);
-        --img-bg: #10121a;
+        --hero-bg: linear-gradient(135deg, rgba(30, 36, 54, 0.7) 0%, rgba(17, 20, 30, 0.8) 100%);
+        --hero-border: 1px solid rgba(255, 255, 255, 0.12);
+        --card-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.5);
+        --card-hover-shadow: 0 20px 35px -5px rgba(236, 72, 153, 0.25), 0 0 20px rgba(255, 107, 107, 0.2);
+        --img-bg: #0f121a;
       }
     }
 
@@ -108,9 +108,9 @@
     body {
       background-color: var(--bg-main);
       background-image: 
-        radial-gradient(at 10% 20%, var(--bg-radial-1) 0px, transparent 50%),
-        radial-gradient(at 90% 10%, var(--bg-radial-2) 0px, transparent 50%),
-        radial-gradient(at 50% 80%, var(--bg-radial-3) 0px, transparent 50%);
+        radial-gradient(at 10% 15%, var(--bg-radial-1) 0px, transparent 45%),
+        radial-gradient(at 90% 10%, var(--bg-radial-2) 0px, transparent 45%),
+        radial-gradient(at 50% 85%, var(--bg-radial-3) 0px, transparent 45%);
       color: var(--text-main);
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
@@ -119,15 +119,16 @@
       overflow-x: hidden;
     }
 
-    /* Top Navigation Header */
+    /* Glossy Header */
     header {
       position: sticky;
       top: 0;
       z-index: 100;
       background: var(--surface-header);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid var(--border-color);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-gloss);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
     }
 
     .nav-container {
@@ -141,7 +142,7 @@
     }
 
     .brand-title {
-      font-size: 1.4rem;
+      font-size: 1.45rem;
       font-weight: 800;
       text-decoration: none;
       color: var(--text-main);
@@ -159,7 +160,7 @@
 
     .brand-handwrite {
       font-family: 'Caveat', cursive;
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       color: var(--craft-pink);
       transform: rotate(-3deg);
       display: inline-block;
@@ -186,17 +187,17 @@
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 600;
-      padding: 0.4rem 0.75rem;
-      border-radius: 8px;
-      transition: all 0.2s ease;
+      padding: 0.45rem 0.85rem;
+      border-radius: 10px;
+      transition: all 0.25s ease;
     }
 
     .nav-links a:hover {
       color: var(--craft-coral);
-      background: rgba(255, 107, 107, 0.1);
+      background: rgba(255, 87, 87, 0.12);
     }
 
-    /* Google Translate Header Integration */
+    /* Google Translate Widget */
     #google_translate_element {
       display: flex;
       align-items: center;
@@ -209,10 +210,11 @@
     }
 
     .goog-te-gadget .goog-te-combo {
-      padding: 0.35rem 0.6rem;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      background-color: var(--surface-card);
+      padding: 0.4rem 0.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-gloss);
+      background-color: var(--surface-glass);
+      backdrop-filter: blur(8px);
       color: var(--text-main);
       font-family: inherit;
       font-size: 0.85rem;
@@ -220,17 +222,14 @@
       cursor: pointer;
     }
 
-    .goog-logo-link {
-      display: none !important;
-    }
-    .goog-te-gadget span {
+    .goog-logo-link, .goog-te-gadget span {
       display: none !important;
     }
 
     .nav-toggle {
       display: none;
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
+      background: var(--surface-glass);
+      border: 1px solid var(--border-gloss);
       color: var(--text-main);
       padding: 0.45rem 0.75rem;
       border-radius: 8px;
@@ -247,16 +246,27 @@
       padding: 2.5rem 1.5rem;
     }
 
-    /* Hero Banner */
+    /* Glossy Hero Banner */
     .hero-banner {
       text-align: center;
-      margin-bottom: 2.75rem;
+      margin-bottom: 3rem;
       padding: 3.5rem 1.5rem;
       background: var(--hero-bg);
-      border-radius: 20px;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 24px;
       border: var(--hero-border);
       position: relative;
-      box-shadow: var(--hero-shadow);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 50%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+      pointer-events: none;
     }
 
     .hero-banner .craft-badge {
@@ -265,11 +275,13 @@
       color: var(--craft-pink);
       font-weight: 700;
       font-size: 0.825rem;
-      padding: 0.35rem 1rem;
+      padding: 0.35rem 1.1rem;
       border-radius: 9999px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       margin-bottom: 1rem;
+      border: 1px solid rgba(236, 72, 153, 0.3);
+      backdrop-filter: blur(4px);
     }
 
     .hero-banner h1 {
@@ -294,6 +306,61 @@
       line-height: 1.6;
     }
 
+    /* Section Headings */
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Featured Section & Glow Aura */
+    .featured-section {
+      margin-bottom: 3.5rem;
+      display: none;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.25rem;
+    }
+
+    /* Glowing Card Styling */
+    .card.is-featured-glow {
+      border: 2px solid rgba(245, 158, 11, 0.7) !important;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.35), 0 0 50px rgba(236, 72, 153, 0.2), var(--card-shadow) !important;
+      animation: pulseGlow 4s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 20px rgba(245, 158, 11, 0.3), 0 0 40px rgba(236, 72, 153, 0.15), var(--card-shadow);
+      }
+      100% {
+        box-shadow: 0 0 35px rgba(245, 158, 11, 0.55), 0 0 70px rgba(236, 72, 153, 0.35), var(--card-shadow);
+      }
+    }
+
+    .featured-badge-pill {
+      position: absolute;
+      top: 0.85rem;
+      left: 0.85rem;
+      background: var(--badge-feat-bg);
+      color: var(--badge-feat-text);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+      z-index: 2;
+    }
+
     /* Dynamic Filter Bar */
     .filter-bar {
       display: flex;
@@ -305,9 +372,10 @@
     }
 
     .filter-btn {
-      background: var(--surface-card);
+      background: var(--surface-glass);
+      backdrop-filter: blur(8px);
       color: var(--text-muted);
-      border: 2px solid var(--border-color);
+      border: 1px solid var(--border-gloss);
       padding: 0.6rem 1.35rem;
       border-radius: 9999px;
       cursor: pointer;
@@ -315,7 +383,7 @@
       font-weight: 700;
       white-space: nowrap;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     }
 
     .filter-btn:hover {
@@ -328,11 +396,11 @@
       background: linear-gradient(135deg, var(--craft-coral), var(--craft-pink));
       color: #ffffff;
       border-color: transparent;
-      box-shadow: 0 4px 14px rgba(236, 72, 153, 0.35);
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
       transform: translateY(-2px);
     }
 
-    /* Catalog Grid */
+    /* Catalog Grid & Glossy Glass Cards */
     .catalog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -340,20 +408,44 @@
     }
 
     .card {
-      background: var(--surface-card);
-      border: 2px solid var(--border-card);
-      border-radius: 18px;
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border-gloss);
+      border-radius: 20px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       cursor: pointer;
-      transition: all 0.25s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       box-shadow: var(--card-shadow);
+      position: relative;
+    }
+
+    /* 50% Transparency for Not Available / Sold Out Items */
+    .card.card-dimmed {
+      opacity: 0.5;
+      filter: grayscale(20%);
+    }
+
+    .card.card-dimmed:hover {
+      opacity: 0.82;
+      filter: grayscale(0%);
+    }
+
+    /* Specular Reflection Gloss Effect */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.03) 40%, transparent 60%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .card:hover {
       transform: translateY(-6px);
-      border-color: #fbcfe8;
+      border-color: rgba(236, 72, 153, 0.4);
       box-shadow: var(--card-hover-shadow);
     }
 
@@ -370,7 +462,7 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.35s ease;
+      transition: transform 0.4s ease;
     }
 
     .card:hover .card-img-wrap img {
@@ -387,18 +479,22 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(6px);
+      z-index: 2;
     }
 
     .status-available { background: var(--badge-avail-bg); color: var(--badge-avail-text); }
     .status-sold { background: var(--badge-sold-bg); color: var(--badge-sold-text); }
-    .status-other { background: var(--border-card); color: var(--text-muted); }
+    .status-other { background: var(--surface-glass); color: var(--text-muted); }
 
     .card-body {
-      padding: 1.35rem;
+      padding: 1.4rem;
       display: flex;
       flex-direction: column;
       flex: 1;
+      position: relative;
+      z-index: 2;
     }
 
     .card-category {
@@ -408,13 +504,14 @@
       letter-spacing: 0.06em;
       display: inline-block;
       padding: 0.25rem 0.65rem;
-      border-radius: 6px;
+      border-radius: 8px;
       width: fit-content;
       margin-bottom: 0.65rem;
+      backdrop-filter: blur(4px);
     }
 
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 700;
       margin-bottom: 0.6rem;
       line-height: 1.35;
@@ -422,7 +519,7 @@
     }
 
     .card-price {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--craft-coral);
       margin-top: auto;
@@ -439,40 +536,42 @@
       font-weight: 600;
     }
 
-    /* Modal / Lightbox */
+    /* Glossy Modal / Lightbox */
     .modal-backdrop {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(10, 12, 18, 0.82);
+      background: rgba(10, 12, 18, 0.85);
       z-index: 200;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(12px);
     }
 
     .modal-content {
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
+      background: var(--surface-glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border-gloss);
+      border-radius: 24px;
       max-width: 650px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
       position: relative;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
     }
 
     .modal-close {
       position: absolute;
       top: 1rem;
       right: 1rem;
-      background: var(--surface-card);
-      border: 1px solid var(--border-color);
+      background: var(--surface-glass);
+      border: 1px solid var(--border-gloss);
       color: var(--text-main);
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       font-size: 1.35rem;
       cursor: pointer;
@@ -480,11 +579,11 @@
       align-items: center;
       justify-content: center;
       z-index: 10;
-      transition: background 0.2s;
+      transition: all 0.2s;
     }
 
     .modal-close:hover {
-      background: rgba(255, 107, 107, 0.15);
+      background: rgba(255, 87, 87, 0.2);
     }
 
     .modal-img {
@@ -495,7 +594,7 @@
     }
 
     .modal-body {
-      padding: 1.75rem;
+      padding: 1.85rem;
     }
 
     .modal-description {
@@ -505,10 +604,11 @@
       font-size: 1rem;
     }
 
-    /* Persistent Timestamped Footer */
+    /* Glossy Persistent Footer */
     footer {
-      border-top: 2px solid var(--border-color);
-      background: var(--surface-card);
+      border-top: 1px solid var(--border-gloss);
+      background: var(--surface-header);
+      backdrop-filter: blur(12px);
       padding: 1.35rem 1.5rem;
       font-size: 0.875rem;
       color: var(--text-muted);
@@ -537,15 +637,16 @@
         top: 100%;
         left: 0;
         right: 0;
-        background: var(--surface-card);
+        background: var(--surface-header);
+        backdrop-filter: blur(16px);
         padding: 1.25rem 1.5rem;
-        border-bottom: 2px solid var(--border-color);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid var(--border-gloss);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
       }
       .nav-links.active {
         display: flex;
       }
-      .catalog-grid {
+      .catalog-grid, .featured-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -558,7 +659,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
-  <!-- Top Navigation Header (Lines 310-332) -->
+  <!-- Top Navigation Header (Lines 450-475) -->
   <header>
     <div class="nav-container">
       <a href="./" class="brand-title">
@@ -566,19 +667,18 @@
         <span class="brand-handwrite">handmade</span>
       </a>
       <div class="nav-right-group">
-        <!-- Google Translate Widget Container -->
         <div id="google_translate_element"></div>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle Menu">&#9776;</button>
         <nav>
           <ul class="nav-links" id="menuNav">
-            <!-- Populated from Menu.json -->
+            <!-- Dynamically populated from Menu.json -->
           </ul>
         </nav>
       </div>
     </div>
   </header>
 
-  <!-- Main Content Layout (Lines 335-354) -->
+  <!-- Main Content Layout (Lines 478-510) -->
   <main>
     <section class="hero-banner">
       <span class="craft-badge">Craft Studio &amp; Creations</span>
@@ -586,6 +686,17 @@
       <p>Explore original handcrafted decor, unique custom gifts, and seasonal crafts designed and crafted by Dawn.</p>
     </section>
 
+    <!-- ⭐ Featured Spotlight Section (Glow-wrapped) -->
+    <section class="featured-section" id="featuredSection">
+      <h2 class="section-title">⭐ Featured Spotlight</h2>
+      <div class="featured-grid" id="featuredGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Main All Items Section -->
+    <h2 class="section-title">All Creations</h2>
+    
     <!-- Dynamic Category Filter Controls -->
     <div class="filter-bar" id="filterBar">
       <button class="filter-btn active" data-category="ALL">All Creations</button>
@@ -597,7 +708,7 @@
     </section>
   </main>
 
-  <!-- Lightbox Modal (Lines 357-372) -->
+  <!-- Lightbox Modal (Lines 513-528) -->
   <div class="modal-backdrop" id="productModal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
@@ -611,15 +722,15 @@
     </div>
   </div>
 
-  <!-- Persistent Timestamped Footer (Lines 375-383) -->
+  <!-- Persistent Timestamped Footer (Lines 531-539) -->
   <footer>
     <div class="footer-inner">
       <div>&copy; Dawn's Arts &amp; Crafts. All rights reserved.</div>
-      <div>Version: 1.4.0 | Updated: 2026-09-30 13:31 EDT</div>
+      <div>Version: 1.7.0 | Updated: 2026-09-30 13:46 EDT</div>
     </div>
   </footer>
 
-  <!-- Google Translate Initialization Script (Lines 386-393) -->
+  <!-- Google Translate Initialization Script (Lines 542-550) -->
   <script type="text/javascript">
     function googleTranslateElementInit() {
       new google.translate.TranslateElement({
@@ -630,7 +741,7 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <!-- Application Logic & Feed Ingestion (Lines 396-575) -->
+  <!-- Application Logic & In-Memory Render Engine (Lines 553-765) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const MENU_ENDPOINT = './Menu.json';
@@ -643,6 +754,8 @@
       // DOM Elements
       const menuNav = document.getElementById('menuNav');
       const navToggle = document.getElementById('navToggle');
+      const featuredSection = document.getElementById('featuredSection');
+      const featuredGrid = document.getElementById('featuredGrid');
       const catalogGrid = document.getElementById('catalogGrid');
       const filterBar = document.getElementById('filterBar');
       const productModal = document.getElementById('productModal');
@@ -654,15 +767,15 @@
       const modalDesc = document.getElementById('modalDesc');
 
       /* ==========================================================================
-         Category Color Engine
+         Vibrant Category Color Palette Engine
          ========================================================================== */
       const categoryColorPalette = [
-        { bg: '#fee2e2', text: '#991b1b' }, // rose
-        { bg: '#ede9fe', text: '#6d28d9' }, // violet
-        { bg: '#e0f2fe', text: '#0369a1' }, // sky blue
-        { bg: '#fef3c7', text: '#92400e' }, // amber
-        { bg: '#dcfce7', text: '#166534' }, // emerald
-        { bg: '#fce7f3', text: '#9d174d' }  // pink
+        { bg: 'rgba(254, 226, 226, 0.85)', text: '#991b1b' },
+        { bg: 'rgba(237, 233, 254, 0.85)', text: '#6d28d9' },
+        { bg: 'rgba(224, 242, 254, 0.85)', text: '#0369a1' },
+        { bg: 'rgba(254, 243, 199, 0.85)', text: '#92400e' },
+        { bg: 'rgba(220, 252, 231, 0.85)', text: '#166534' },
+        { bg: 'rgba(252, 231, 243, 0.85)', text: '#9d174d' }
       ];
 
       function getCategoryColors(categoryName) {
@@ -725,7 +838,7 @@
       }
 
       /* ==========================================================================
-         Robust CSV Parser
+         Robust CSV Parser (Safe with commas, quotes, and newlines)
          ========================================================================== */
       function parseCSV(text) {
         const lines = [];
@@ -767,56 +880,105 @@
       }
 
       /* ==========================================================================
-         Catalog Grid & Modal Lightbox
+         Card Creator Helper (with 50% transparency on unavailable items)
          ========================================================================== */
-      function renderCatalog() {
-        if (!catalogGrid) return;
-        catalogGrid.innerHTML = '';
+      function createCardElement(item, isFeaturedCard = false) {
+        const card = document.createElement('article');
+        
+        let statusClass = 'status-other';
+        const st = (item.status || '').toLowerCase();
+        
+        // Detect availability states (including "not avalible", "sold", "out of stock")
+        const isNotAvailable = st.includes('not') || st.includes('sold') || st.includes('out') || st.includes('unavail');
 
+        if (isNotAvailable) {
+          statusClass = 'status-sold';
+        } else if (st.includes('avail')) {
+          statusClass = 'status-available';
+        }
+
+        // Apply 50% transparency class if item is unavailable
+        card.className = 'card' + 
+          (isFeaturedCard ? ' is-featured-glow' : '') + 
+          (isNotAvailable ? ' card-dimmed' : '');
+
+        const colors = getCategoryColors(item.category);
+
+        card.innerHTML = `
+          <div class="card-img-wrap">
+            <img src="${item.imageUrl || '//placehold.co/600x400/ece7de/64748b?text=Dawn%27s+Craft'}" loading="lazy">
+            ${isFeaturedCard ? '<span class="featured-badge-pill">⭐ Featured</span>' : ''}
+            <span class="status-badge ${statusClass}">${item.status || 'Available'}</span>
+          </div>
+          <div class="card-body">
+            <div class="card-category" style="background:${colors.bg}; color:${colors.text};">${item.category || 'Handcrafted'}</div>
+            <h3 class="card-title">${item.productName || 'Handmade Creation'}</h3>
+            <div class="card-price">
+              <span>${item.price || 'Inquire for Price'}</span>
+              <span class="view-cta">View Details &rarr;</span>
+            </div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => openModal(item));
+        return card;
+      }
+
+      /* ==========================================================================
+         Zero-Flicker Grid Renderer (Uses DocumentFragments)
+         ========================================================================== */
+      function renderAllGrids() {
+        if (!catalogGrid) return;
+
+        // 1. Featured Spotlight Section
+        const featuredItems = catalogData.filter(item => {
+          const val = (item.featured || '').trim().toLowerCase();
+          return val === 'true' || val === 'yes' || val === '1';
+        });
+
+        if (featuredItems.length > 0 && featuredSection && featuredGrid) {
+          const featFragment = document.createDocumentFragment();
+          featuredItems.forEach(item => {
+            featFragment.appendChild(createCardElement(item, true));
+          });
+          featuredGrid.innerHTML = '';
+          featuredGrid.appendChild(featFragment);
+          featuredSection.style.display = 'block';
+        } else if (featuredSection) {
+          featuredSection.style.display = 'none';
+        }
+
+        // 2. Main Catalog Grid
         const filtered = catalogData.filter(item => {
           if (activeCategory === 'ALL') return true;
           return (item.category || '').toUpperCase() === activeCategory.toUpperCase();
         });
 
+        const mainFragment = document.createDocumentFragment();
+
         if (filtered.length === 0) {
-          catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 3rem; font-weight:500;">No items found in this category.</div>';
-          return;
+          const emptyNotice = document.createElement('div');
+          emptyNotice.style.cssText = 'color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 3rem; font-weight:500;';
+          emptyNotice.textContent = 'No items found in this category.';
+          mainFragment.appendChild(emptyNotice);
+        } else {
+          filtered.forEach(item => {
+            const isFeat = (item.featured || '').trim().toLowerCase() === 'true';
+            mainFragment.appendChild(createCardElement(item, isFeat));
+          });
         }
 
-        filtered.forEach(item => {
-          const card = document.createElement('article');
-          card.className = 'card';
-
-          let statusClass = 'status-other';
-          const st = (item.status || '').toLowerCase();
-          if (st.includes('avail')) statusClass = 'status-available';
-          if (st.includes('sold')) statusClass = 'status-sold';
-
-          const colors = getCategoryColors(item.category);
-
-          card.innerHTML = `
-            <div class="card-img-wrap">
-              <img src="${item.imageUrl || '//placehold.co/600x400/faf7f2/64748b?text=Dawn%27s+Craft'}" loading="lazy">
-              <span class="status-badge ${statusClass}">${item.status || 'Available'}</span>
-            </div>
-            <div class="card-body">
-              <div class="card-category" style="background:${colors.bg}; color:${colors.text};">${item.category || 'Handcrafted'}</div>
-              <h3 class="card-title">${item.productName || 'Handmade Creation'}</h3>
-              <div class="card-price">
-                <span>${item.price || 'Inquire for Price'}</span>
-                <span class="view-cta">View Details &rarr;</span>
-              </div>
-            </div>
-          `;
-
-          card.addEventListener('click', () => openModal(item));
-          catalogGrid.appendChild(card);
-        });
+        // Atomic swap to prevent screen flickering
+        catalogGrid.innerHTML = '';
+        catalogGrid.appendChild(mainFragment);
       }
 
+      /* ==========================================================================
+         Lightbox Handlers (ALT text strictly restricted to lightbox view)
+         ========================================================================== */
       function openModal(item) {
         if (!productModal) return;
-        modalImg.src = item.imageUrl || '//placehold.co/600x400/faf7f2/64748b?text=Dawn%27s+Craft';
+        modalImg.src = item.imageUrl || '//placehold.co/600x400/ece7de/64748b?text=Dawn%27s+Craft';
         modalImg.alt = `${item.productName} - Full Lightbox View`;
         modalTitle.textContent = item.productName || 'Handcrafted Creation';
         modalCategory.textContent = item.category || 'Craft';
@@ -859,7 +1021,7 @@
         allBtn.addEventListener('click', () => {
           activeCategory = 'ALL';
           updateActiveFilterButton(allBtn);
-          renderCatalog();
+          renderAllGrids();
         });
         filterBar.appendChild(allBtn);
 
@@ -870,7 +1032,7 @@
           btn.addEventListener('click', () => {
             activeCategory = cat;
             updateActiveFilterButton(btn);
-            renderCatalog();
+            renderAllGrids();
           });
           filterBar.appendChild(btn);
         });
@@ -894,14 +1056,16 @@
           if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
           const csvText = await response.text();
 
-          // Repaint only if sheet payload actually changed
+          // If the CSV response has not changed, do nothing to prevent DOM flickering
           if (csvText === previousCsvPayload) {
             return;
           }
-          previousCsvPayload = csvText;
 
           const rows = parseCSV(csvText);
           if (rows.length < 2) return;
+
+          // Commit to previous payload only after successful parse
+          previousCsvPayload = csvText;
 
           // Mapping: A: Item ID | B: Product Name | C: Category | D: Price | E: Image Url | F: Status | G: Description | H: Featured
           catalogData = rows.slice(1).map(row => ({
@@ -916,12 +1080,9 @@
           }));
 
           buildFilterButtons();
-          renderCatalog();
+          renderAllGrids();
         } catch (err) {
-          console.error('Error fetching sheet CSV:', err);
-          if (catalogGrid && catalogData.length === 0) {
-            catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 2rem;">Loading Dawn\'s arts and crafts collection...</div>';
-          }
+          console.error('Safe Sheet Fetch Encountered an Issue:', err);
         }
       }
 
@@ -929,7 +1090,7 @@
       loadMenu();
       loadCatalogData();
 
-      // Background poll every 60 seconds
+      // Silent non-destructive poll every 60 seconds
       setInterval(() => {
         loadCatalogData();
       }, 60000);
