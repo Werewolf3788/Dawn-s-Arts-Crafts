@@ -2,8 +2,8 @@
 <html lang="en">
 <!--
   Dawn's Arts & Crafts Showcase
-  Build Timestamp: 2026-09-30 13:22:00 EDT (America/New_York)
-  Version: 1.1.0
+  Build Timestamp: 2026-09-30 13:24:00 EDT (America/New_York)
+  Version: 1.2.0
 -->
 <head>
   <!-- Google Tag Manager (Lines 10-18) -->
@@ -30,9 +30,9 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dawn's Arts &amp; Crafts | Handmade Showcase</title>
+  <title>Dawn's Arts &amp; Crafts | Handcrafted Showcase</title>
 
-  <!-- Typography & Styling (Lines 37-265) -->
+  <!-- Typography & Styling (Lines 37-270) -->
   <link rel="preconnect" href="//fonts.googleapis.com">
   <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
   <link href="//fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
@@ -478,7 +478,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
-  <!-- Top Navigation Header (Lines 275-288) -->
+  <!-- Top Navigation Header (Lines 280-293) -->
   <header>
     <div class="nav-container">
       <a href="./" class="brand-title">
@@ -494,7 +494,7 @@
     </div>
   </header>
 
-  <!-- Main Content Layout (Lines 291-310) -->
+  <!-- Main Content Layout (Lines 296-315) -->
   <main>
     <section class="hero-banner">
       <span class="craft-badge">Craft Studio &amp; Creations</span>
@@ -513,7 +513,7 @@
     </section>
   </main>
 
-  <!-- Lightbox Modal (Lines 313-328) -->
+  <!-- Lightbox Modal (Lines 318-333) -->
   <div class="modal-backdrop" id="productModal" role="dialog" aria-modal="true">
     <div class="modal-content">
       <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
@@ -527,15 +527,15 @@
     </div>
   </div>
 
-  <!-- Persistent Timestamped Footer (Lines 331-339) -->
+  <!-- Persistent Timestamped Footer (Lines 336-344) -->
   <footer>
     <div class="footer-inner">
       <div>&copy; Dawn's Arts &amp; Crafts. All rights reserved.</div>
-      <div>Version: 1.1.0 | Updated: 2026-09-30 13:22 EDT</div>
+      <div>Version: 1.2.0 | Updated: 2026-09-30 13:24 EDT</div>
     </div>
   </footer>
 
-  <!-- Application Logic & Feed Ingestion (Lines 342-530) -->
+  <!-- Application Logic & Feed Ingestion (Lines 347-550) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const MENU_ENDPOINT = './Menu.json';
@@ -577,14 +577,14 @@
         return categoryColorPalette[index];
       }
 
-      // Mobile Menu Toggle
+      // Mobile Menu Drawer Toggle
       if (navToggle && menuNav) {
         navToggle.addEventListener('click', () => {
           menuNav.classList.toggle('active');
         });
       }
 
-      // External vs Internal Link Resolver
+      // External vs Internal Link Resolver (Opens external in new tab, same domain in same tab)
       function configureLink(linkEl, href) {
         linkEl.href = href;
         try {
@@ -604,7 +604,7 @@
       async function loadMenu() {
         if (!menuNav) return;
         try {
-          const response = await fetch(MENU_ENDPOINT);
+          const response = await fetch(MENU_ENDPOINT + '?_t=' + new Date().getTime());
           if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
           const data = await response.json();
 
@@ -625,7 +625,7 @@
         }
       }
 
-      // Robust CSV Parser
+      // Robust CSV Parser (Safely handles commas, quotes, and newlines)
       function parseCSV(text) {
         const lines = [];
         let row = [];
@@ -665,7 +665,7 @@
         return lines;
       }
 
-      // Render Craft Cards
+      // Render Craft Cards to the Catalog Grid
       function renderCatalog() {
         if (!catalogGrid) return;
         catalogGrid.innerHTML = '';
@@ -676,7 +676,7 @@
         });
 
         if (filtered.length === 0) {
-          catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 3rem; font-weight:500;">No items found in this category.</div>';
+          catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 3rem; font-weight:500;">No items currently found in this category.</div>';
           return;
         }
 
@@ -711,7 +711,7 @@
         });
       }
 
-      // Lightbox Handlers
+      // Lightbox Modal Handlers (Alt text strictly restricted to lightbox view)
       function openModal(item) {
         if (!productModal) return;
         modalImg.src = item.imageUrl || '//placehold.co/600x400/faf7f2/64748b?text=Dawn%27s+Craft';
@@ -781,17 +781,19 @@
         selectedBtn.classList.add('active');
       }
 
-      // Fetch & Process Sheet Data
+      // Fetch & Process Sheet Data (Cache-Busted & Auto-Updating)
       async function loadCatalogData() {
         try {
-          const response = await fetch(SHEET_CSV_ENDPOINT);
+          // Append timestamp to ensure browser always requests fresh data from the server
+          const liveCsvUrl = SHEET_CSV_ENDPOINT + '&_cb=' + new Date().getTime();
+          const response = await fetch(liveCsvUrl);
           if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
           const csvText = await response.text();
           const rows = parseCSV(csvText);
 
           if (rows.length < 2) return;
 
-          // Headers: A: Item ID | B: Product Name | C: Category | D: Price | E: Image Url | F: Status | G: Description | H: Featured
+          // Mapping: A: Item ID | B: Product Name | C: Category | D: Price | E: Image Url | F: Status | G: Description | H: Featured
           catalogData = rows.slice(1).map(row => ({
             itemId: row[0] || '',
             productName: row[1] || 'Handmade Craft',
@@ -807,7 +809,7 @@
           renderCatalog();
         } catch (err) {
           console.error('Error fetching sheet CSV:', err);
-          if (catalogGrid) {
+          if (catalogGrid && catalogData.length === 0) {
             catalogGrid.innerHTML = '<div style="color:var(--text-muted); grid-column: 1/-1; text-align:center; padding: 2rem;">Loading Dawn\'s arts and crafts collection...</div>';
           }
         }
@@ -816,6 +818,11 @@
       // Initial execution
       loadMenu();
       loadCatalogData();
+
+      // Live Auto-Update Poller: Checks Google Sheets for fresh rows every 60 seconds
+      setInterval(() => {
+        loadCatalogData();
+      }, 60000);
     });
   </script>
 </body>
