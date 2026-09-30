@@ -1,26 +1,5 @@
 [
-  {
-    "name": "Home",
-    "url": "./index.html"
-  },
-  {
-    "name": "Clay City",
-    "url": "./clay-city.html"
-  },
-  {
-    "name": "Flora",
-    "url": "./flora.html"
-  },
-  {
-    "name": "Louisville",
-    "url": "./louisville/index.html"
-  },
-  {
-    "name": "Sailor Springs",
-    "url": "./sailor-springs.html"
-  },
-  {
-    "name": "Xenia",
-    "url": "./xenia.html"
-  }
+  { "title": "Home", "url": "./" },
+  { "title": "Shop", "url": "#catalogGrid" },
+  { "title": "About Dawn", "url": "#" }
 ]
